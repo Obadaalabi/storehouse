@@ -8,7 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\storehouse_control\storehouse_controlr.csproj" />
     <ProjectReference Include="..\storehouse_Data\storehouse_Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="book_defult.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="user_defult.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

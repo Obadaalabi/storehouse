@@ -1,4 +1,7 @@
-﻿using storehouse_Data;
+﻿
+using storehouse_Data;
+using storehouse_Domain;
+using System.Text.Json;
 
 namespace storehouse
 {
@@ -8,7 +11,9 @@ namespace storehouse
         {
             Console.WriteLine("Hello, World!");
 
-        
+           
+
+          
         }
     }
 }

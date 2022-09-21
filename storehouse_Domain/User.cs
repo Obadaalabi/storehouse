@@ -4,7 +4,7 @@
     {
         public int UserId { get; set; }
         public string? name_user { get; set; }
-        public int pass_word { get; set; }
+        public String pass_word { get; set; }
 
 
     }
