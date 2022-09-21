@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using storehouse_Data;
 
@@ -10,9 +11,10 @@ using storehouse_Data;
 namespace storehouse_Data.Migrations
 {
     [DbContext(typeof(Storehouse_DBcontext))]
-    partial class Storehouse_DBcontextModelSnapshot : ModelSnapshot
+    [Migration("20220920160048_password field to string")]
+    partial class passwordfieldtostring
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,6 +33,9 @@ namespace storehouse_Data.Migrations
 
                     b.Property<bool>("isDelete")
                         .HasColumnType("bit");
+
+                    b.Property<string>("name_book")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("price")
                         .HasColumnType("int");
