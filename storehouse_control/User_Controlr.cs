@@ -7,9 +7,13 @@ namespace storehouse_control
 {
     public class User_Controlr : Controlr
     {
-        public  override void Add()
+        public override void Add()
         {
            
+        }
+        public bool Authentication(string name,string password)
+        {
+            return false;
         }
 
         public override void Add_Defult()
