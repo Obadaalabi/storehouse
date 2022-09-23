@@ -1,8 +1,11 @@
 ﻿
+using LoggerApp;
 using storehouse_control;
 using storehouse_Data;
 using storehouse_Domain;
 using System.Text.Json;
+
+
 
 namespace storehouse
 {
@@ -10,8 +13,9 @@ namespace storehouse
     {
         static void Main(string[] args)
         {
-
+            Logger logger = new Logger();
           
+
             User_Controlr.Add_Defult();
             Book_Controlr.Add_Defult();
 
@@ -20,7 +24,7 @@ namespace storehouse
             var name = Console.ReadLine();
             Console.Write("please enter the password:");
             var password = Console.ReadLine();
-            if (User_Controlr.Authentication(name, password))
+            if (User_Controlr.Authentication(name!, password!))
             {
                 Console.WriteLine("success");
                 Book_Controlr.Numberofbooks();
@@ -45,11 +49,11 @@ namespace storehouse
                             break;
                         case ("3"): Book_Controlr.Delete();
                             break;
-                        case ("4"):
+                        case ("4"): Book_Controlr.UpDate();
                             break;
                         case ("5"): isopen=false;
                             break;
-                        default:
+                          default:logger.LogWarning("The user in the list has entered : "+select);
                             break;
                     }
                 }
@@ -58,7 +62,7 @@ namespace storehouse
             else
             {
                 Console.WriteLine("please check your name and password");
-
+              
             }
         }
     }

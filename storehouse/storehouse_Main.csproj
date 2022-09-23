@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LoggerApp\LoggerApp.csproj" />
     <ProjectReference Include="..\storehouse_control\storehouse_controlr.csproj" />
     <ProjectReference Include="..\storehouse_Data\storehouse_Data.csproj" />
   </ItemGroup>
