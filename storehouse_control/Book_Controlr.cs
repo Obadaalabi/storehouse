@@ -2,7 +2,6 @@
 using storehouse_Data;
 using storehouse_Domain;
 using System.Text.Json;
-using static System.Reflection.Metadata.BlobBuilder;
 
 namespace storehouse_control
 {
@@ -83,7 +82,7 @@ namespace storehouse_control
             using (var context = new Storehouse_DBcontext())
             {
                 var books = context.Books?.Where(b => b.isDelete == false).ToList();
-                foreach (var book in books)
+                foreach (var book in books!)
                 {
                     Console.WriteLine("the id : " + book.Id +"\t the title book : " + book.title +
                                       "\t number of copies : " + book.quantity);
@@ -116,10 +115,19 @@ namespace storehouse_control
                     }
                     else
                     {
-                        book.isDelete = true;
-                        context.SaveChanges();
-                        logger.LogInformation("User deleted book ID : " + id + "  Successfully");
-                        Console.WriteLine("the book has been successfully deleted");
+                        Console.WriteLine("If you want to confirm the deletion enter (Y) and if you want to undo enter (N)");
+                       var select= Console.ReadLine();
+                        if (select == "Y" || select == "y")
+                        {
+                            book.isDelete = true;
+                            context.SaveChanges();
+                            logger.LogInformation("User deleted book ID : " + id + "  Successfully");
+                            Console.WriteLine("the book has been successfully deleted");
+                        }
+                        else
+                        {
+                            Delete();
+                        }
 
                     }
                 }
