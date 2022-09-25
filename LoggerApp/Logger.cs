@@ -15,7 +15,7 @@ namespace LoggerApp
               
                 streamWriter.WriteLine(message);
             }
-            Console.WriteLine(message);
+           
         }
 
         public void log(string message, String messagetype)
